@@ -204,7 +204,6 @@ jobs:
             id('12312313') // IMPORTANT: use a constant and unique identifier
             scanCredentialsId('github')
             repoOwner('85matthew')
-            repository('my-repository')
             includes('NetCICD-NetCICD-developer-toolbox')
           }
         }
