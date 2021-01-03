@@ -23,6 +23,6 @@ commands:
    - name: build
      actions:
        - type: exec
-         component: mysql
+         component: postgres
          command: mvn clean
          workdir: /projects/spring-petclinic
