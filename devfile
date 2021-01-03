@@ -1,0 +1,27 @@
+apiVersion: 1.0.0
+metadata:
+  generateName: wksp-custom-netcicd-
+attributes:
+  persistVolumes: 'false'
+projects:
+  - name: netcicd
+    source:
+      type: git
+      location: 'https://github.com/85matthew/NetCICD-developer-toolbox.git'
+components:
+  - alias: theia-editor
+    type: cheEditor
+    id: eclipse/che-theia/next
+  - alias: myThingy
+    type: kubernetes
+    reference: "./ocp/manifests/test.yaml"
+    env:
+      - name: MY_VAR
+        value: value
+commands:
+   - name: build
+     actions:
+       - type: exec
+         component: mysql
+         command: mvn clean
+         workdir: /projects/spring-petclinic
