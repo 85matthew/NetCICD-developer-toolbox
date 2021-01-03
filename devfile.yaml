@@ -15,7 +15,7 @@ components:
     id: eclipse/che-theia/next
   - alias: postgres
     type: kubernetes
-    reference: "./ocp/manifests/test.yaml"
+    reference: "manifests/test.yaml"
     env:
       - name: MY_VAR
         value: value
