@@ -13,7 +13,7 @@ components:
   - alias: theia-editor
     type: cheEditor
     id: eclipse/che-theia/next
-  - alias: myThingy
+  - alias: postgres
     type: kubernetes
     reference: "./ocp/manifests/test.yaml"
     env:
