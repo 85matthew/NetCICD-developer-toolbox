@@ -145,21 +145,38 @@ jenkins:
             slaveConnectTimeoutStr: "0"
             yamlMergeStrategy: "override"
   disableRememberMe: false
+  globalNodeProperties:
+    - envVars:
+        env:
+          - key: "CML_URL"
+            value: "http://192.168.0.57"
   labelAtoms:
     - name: "master"
-  labelString: "master"
+    - name: "jenkins_node"
   markupFormatter: "plainText"
   mode: NORMAL
   myViewsTabBar: "standard"
+  nodes:
+    - permanent:
+        launcher:
+          jnlp:
+            workDirSettings:
+              disabled: false
+              failIfWorkDirIsMissing: false
+              internalDir: "remoting"
+        name: "jenkins_node"
+        nodeDescription: "Jenkins Worker node"
+        remoteFS: "/root/jenkins_slave"
+        retentionStrategy: "always"
   noUsageStatistics: true
-  numExecutors: 5
+  numExecutors: 0
   primaryView:
     all:
       name: "all"
   projectNamingStrategy: "standard"
   quietPeriod: 1
   remotingSecurity:
-    enabled: false
+    enabled: true
   scmCheckoutRetryCount: 0
   securityRealm: "openShiftOAuth2"
   slaveAgentPort: 50000
@@ -202,7 +219,7 @@ jobs:
           github {
             // The id option in the Git and GitHub branch source contexts is now mandatory (JENKINS-43693).
             id('12312313') // IMPORTANT: use a constant and unique identifier
-            scanCredentialsId('github')
+#            scanCredentialsId('github')
             repoOwner('85matthew')
             repository('NetCICD-NetCICD-developer-toolbox')
           }
@@ -220,6 +237,15 @@ jobs:
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
+    queueItemAuthenticator:
+      authenticators:
+        - global:
+            strategy: triggeringUsersAuthorizationStrategy
+      scriptApproval:
+        approvedSignatures:
+          - "method hudson.slaves.SlaveComputer getJnlpMac"
+          - "method jenkins.model.Jenkins getComputer java.lang.String"
+          - "staticMethod jenkins.model.Jenkins getInstance"
     tokenGenerationOnCreationEnabled: false
     usageStatisticsEnabled: true
   globalJobDslSecurityConfiguration:
@@ -259,7 +285,7 @@ unclassified:
     namespace: "jenkins-operator-system"
     secretListInterval: 300
   location:
-    adminAddress: "address not configured yet <nobody@nowhere>"
+    adminAddress: "nobody@nowhere"
     url: "https://jenkins-netcicd-jenkins-operator-system.apps-crc.testing"
   mailer:
     charset: "UTF-8"
