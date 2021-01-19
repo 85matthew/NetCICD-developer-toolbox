@@ -177,14 +177,13 @@ jenkins:
             slaveConnectTimeoutStr: "0"
             yamlMergeStrategy: "override"
   disableRememberMe: false
-  globalNodeProperties:
-    - envVars:
-        env:
-          - key: "CML_URL"
-            value: "http://192.168.0.57"
+#  globalNodeProperties:
+#    - envVars:
+#        env:
+#          - key: "CML_URL"
+#            value: "http://192.168.0.57"
   labelAtoms:
     - name: "master"
-    - name: "jenkins_node"
   markupFormatter: "plainText"
   mode: NORMAL
   myViewsTabBar: "standard"
