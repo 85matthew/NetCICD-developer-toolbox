@@ -186,7 +186,7 @@ jenkins:
   globalNodeProperties:
     - envVars:
         env:
-          - key: "CML-URL"
+          - key: "CML_URL"
             value: "http://192.168.0.57"
   labelAtoms:
     - name: "master"
