@@ -7,6 +7,12 @@ credentials:
             scope: GLOBAL
         - usernamePassword:
             description: "Credentials to start simulation in VIRL/CML"
+            id: "github"
+            password: ${GITHUB_PASSWORD}
+            scope: GLOBAL
+            username: ${GITHUB_USER}
+        - usernamePassword:
+            description: "Credentials to start simulation in VIRL/CML"
             id: "CML-SIM-CRED"
             password: ${CML_PASSWORD}
             scope: GLOBAL
