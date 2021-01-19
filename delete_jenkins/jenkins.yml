@@ -270,10 +270,6 @@ security:
     creationOfLegacyTokenEnabled: false
     tokenGenerationOnCreationEnabled: false
     usageStatisticsEnabled: true
-#  queueItemAuthenticator:
-#    authenticators:
-#    - global:
-#        strategy: triggeringUsersAuthorizationStrategy
   scriptApproval:
     approvedSignatures:
       - "method hudson.slaves.SlaveComputer getJnlpMac"
