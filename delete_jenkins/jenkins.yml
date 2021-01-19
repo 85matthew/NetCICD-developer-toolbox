@@ -200,7 +200,7 @@ jenkins:
         remoteFS: "/root/jenkins_slave"
         retentionStrategy: "always"
   noUsageStatistics: true
-  numExecutors: 0
+  numExecutors: 2
   primaryView:
     all:
       name: "all"
