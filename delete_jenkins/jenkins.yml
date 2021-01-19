@@ -268,17 +268,17 @@ jobs:
 security:
   apiToken:
     creationOfLegacyTokenEnabled: false
-    queueItemAuthenticator:
-      authenticators:
-        - global:
-            strategy: triggeringUsersAuthorizationStrategy
-    scriptApproval:
-      approvedSignatures:
-        - "method hudson.slaves.SlaveComputer getJnlpMac"
-        - "method jenkins.model.Jenkins getComputer java.lang.String"
-        - "staticMethod jenkins.model.Jenkins getInstance"
     tokenGenerationOnCreationEnabled: false
     usageStatisticsEnabled: true
+  queueItemAuthenticator:
+    authenticators:
+      - global:
+          strategy: triggeringUsersAuthorizationStrategy
+  scriptApproval:
+    approvedSignatures:
+      - "method hudson.slaves.SlaveComputer getJnlpMac"
+      - "method jenkins.model.Jenkins getComputer java.lang.String"
+      - "staticMethod jenkins.model.Jenkins getInstance"
   globalJobDslSecurityConfiguration:
     useScriptSecurity: true
   sSHD:
