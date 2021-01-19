@@ -275,7 +275,7 @@ security:
   queueItemAuthenticator:
     authenticators:
       - global:
-          strategy: triggeringUsersAuthorizationStrategy
+          strategy: SpecificUsersAuthorizationStrategy
   apiToken:
     creationOfLegacyTokenEnabled: false
     tokenGenerationOnCreationEnabled: false
