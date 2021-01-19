@@ -272,10 +272,6 @@ jobs:
       }
 
 security:
-  queueItemAuthenticator:
-    authenticators:
-      - global:
-          strategy: SpecificUsersAuthorizationStrategy
   apiToken:
     creationOfLegacyTokenEnabled: false
     tokenGenerationOnCreationEnabled: false
