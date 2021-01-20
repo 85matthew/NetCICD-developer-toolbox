@@ -266,12 +266,21 @@ jobs:
             numToKeep(1)
           }
         }
+        factory {
+          pipelineBranchDefaultsProjectFactory {
+          scriptId 'Jenkinsfile'
+          useSandbox false
+        }
         triggers {
           periodic(5)
         }
       }
 
 security:
+  queueItemAuthenticator:
+    authenticators:
+      - global:
+          strategy: triggeringUsersAuthorizationStrategy
   apiToken:
     creationOfLegacyTokenEnabled: false
     tokenGenerationOnCreationEnabled: false
